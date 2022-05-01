@@ -1,0 +1,8 @@
+Create New project django
+django-admin startproject firstapp
+
+use project django sqllite3
+python manage.py migrate
+
+Run server Django
+python manage.py runserver
