@@ -6,6 +6,21 @@
 </head>
 <body>
     <h1>Hola esta es la plantilla del home</h1>
-    <h1>El nombre del dueño de la plantilla es {{nombre}} {{apellido}}</h1>
+    <h1>El nombre del dueño de la plantilla es {{nombre.upper}} {{apellido.upper}}</h1>
+    <p><b>temas de esta web:</b></p>
+    <p>
+        <ul>
+        {% if temas%}
+            {% for tema in temas %}
+
+            <li>{{tema}}</li>
+            {% endfor %}
+        {% else %}
+            <p>No hay elementos que mostrar</p>
+        {% endif %}
+
+
+        </ul>
+    </p>
 </body>
 </html>
