@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from firstapp.views import Home #siempre llamar cada vez que se crea una vista.
+from firstapp.views import IniciarSesion
+from firstapp.views import Fecha
+from firstapp.views import CalcularEdad
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', Home),
+    path('sesion/', IniciarSesion),
+    path('fecha/', Fecha),
+    path('edad/<int:edad>/<int:anio>', CalcularEdad),
 ]
