@@ -54,7 +54,7 @@ ROOT_URLCONF = 'secondapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/thehardest18/Escritorio/Proyectos Django/secondapp/plantillas/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

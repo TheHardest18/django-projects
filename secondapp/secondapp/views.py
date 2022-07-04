@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template import loader
 
 class Persona(object):
     def __init__(self, nombre, apellido):
@@ -10,9 +11,10 @@ class Persona(object):
 def Home(request):
     obj = Persona("Isias", "Mateo")
     temas01 = ['Plantillas', 'Modelos', 'Formularios', 'Vistas', 'Despliegue']
-    xpath = open("/home/thehardest18/Escritorio/Proyectos Django/secondapp/plantillas/miplantilla.html")
-    tmpl = Template(xpath.read())
-    ctx = Context({'nombre': obj.nombre, 'apellido': obj.apellido, 'temas': temas01})
+
+    tmpl = loader.get_template('miplantilla.html')
+    ctx = {'nombre': obj.nombre, 'apdellido': obj.apellido, 'temas': temas01}
+
     documento = tmpl.render(ctx)
     return HttpResponse(documento)
 
