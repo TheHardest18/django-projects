@@ -6,14 +6,19 @@
 </head>
 <body>
     <h1>Hola esta es la plantilla del home</h1>
-    <h1>El nombre del dueño de la plantilla es {{nombre.upper}} {{apellido.upper}}</h1>
+    <h1>El nombre del dueño de la plantilla es {{nombre|upper}} {{apellido.upper}}</h1>
+    {% if nombre == 'Isias' %}
+        <p>El dueño de la plantilla esta presente</p>
+    {% else %}
+        <p style="color: red;">Este no es el dueño de la plantilla</p>
+    {% endif %}
     <p><b>temas de esta web:</b></p>
     <p>
         <ul>
-        {% if temas%}
+        {% if temas %}
             {% for tema in temas %}
 
-            <li>{{tema}}</li>
+            <li>{{tema|first|lower}}</li>
             {% endfor %}
         {% else %}
             <p>No hay elementos que mostrar</p>
