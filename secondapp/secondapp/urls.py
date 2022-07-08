@@ -19,6 +19,7 @@ from secondapp.views import Home
 from secondapp.views import edad
 from secondapp.views import CalcularEdad
 from secondapp.views import iniciar
+from secondapp.views import Inicio
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', Home),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('calcular/<int:edad>/<int:anio>', CalcularEdad),
     path('iniciar/', iniciar),
     path('home/iniciar/', iniciar),
+    path('inicio/', Inicio),
 ]

@@ -9,6 +9,10 @@ class Persona(object):
         self.nombre = nombre
         self.apellido = apellido
 
+def Inicio(request):
+    ctx = {}
+    return render(request, "inicio.html", ctx)
+
 def Home(request):
     obj = Persona("Isias", "Mateo")
     temas01 = ['Plantillas', 'Modelos', 'Formularios', 'Vistas', 'Despliegue']
