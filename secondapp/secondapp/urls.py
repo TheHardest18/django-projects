@@ -18,9 +18,12 @@ from django.urls import path
 from secondapp.views import Home
 from secondapp.views import edad
 from secondapp.views import CalcularEdad
+from secondapp.views import iniciar
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home/', Home),
     path('edad/', edad),
     path('calcular/<int:edad>/<int:anio>', CalcularEdad),
+    path('iniciar/', iniciar),
+    path('home/iniciar/', iniciar),
 ]
