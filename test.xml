@@ -1,0 +1,60 @@
+<!-- Inherit Form View to Modify it -->
+<record id="" model="ir.ui.view">
+    <field name="name"></field>
+    <field name="model"></field>
+    <field name="inherit_id" ref=""/>
+    <field name="arch" type="xml">
+
+        <xpath expr="//field[@name='name']" position="">
+            <!-- Add your fields or attributes here -->
+        </xpath>
+
+    </field>
+</record>
+<template id="UNIQUE_ID">
+    <t t-call="report.html_container">
+        <t t-call="report.internal_layout">
+        <!-- <t t-call="report.external_layout"> -->
+            <div class="page">
+                <h2>TITLE FOR YOUR REPORT</h2>
+                <!--
+                Build your report here!
+                Do it in awesome way ;)
+                -->
+            </div>
+        </t>
+    </t>
+</template>
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>HEAD_1</th>
+            <th class="text-right">HEAD_2</th>
+            <th class="text-right">HEAD_3</th>
+            <th class="text-right">HEAD_4</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr t-foreach="o.OBJECTS" t-as="OBJECT">
+            <t t-if="len(taxline['level']) > 5">
+                <t t-set="style" t-value="'font-weight:normal;'"/>
+            </t>
+            <t t-if="not len(taxline['level']) > 5">
+                <t t-set="style" t-value="'font-weight:bold;'"/>
+            </t>
+
+            <td>
+                <span t-att-style="style" t-esc="taxline['level']" style="color:white;"/>
+                <span t-att-style="style" t-if="taxline['code']" t-esc="taxline['code']"/>
+                <span t-att-style="style" t-esc="taxline['name']"/>
+            </td>
+            <td class="text-right"><span t-att-style="style" t-esc="taxline['debit']"/></td>
+            <td class="text-right"><span t-att-style="style" t-esc="taxline['credit']"/></td>
+            <td class="text-right">
+                <span t-att-style="style" t-esc="formatLang(taxline['tax_amount'], currency_obj=res_company.currency_id)"/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+odoo

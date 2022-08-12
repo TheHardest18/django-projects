@@ -6,3 +6,41 @@ python manage.py migrate
 
 Run server Django
 python manage.py runserver
+
+Create new app
+python manage.py startapp NombreDeLaApp
+
+Check errors
+python manage.py check
+
+-------------COMMAND SQLITE----------
+Open terminal of project
+python manage shell
+
+query for create record
+from NombreApp.models import nameClass
+var = nameClass(varchar='', varint=98 )
+var.save()
+OR USE THIS COMMAND
+var = nameClass.objects.create(varchar, varint=7676)
+
+DELETE
+var = NameClass.objects.get(id=#)
+var.delete()
+
+ALL REGISTER OF TABLE
+list = nameClass.objects.all()
+list
+
+OBTAIN QUERY
+list.query__str__()
+
+SEARCH
+from NombreApp.models import nameClass
+nameClass.models.filter(field='name')
+^--this return a QuerySet
+
+TRANSFORM SEARCH TO STR
+Create function python inside Class
+def __str__(self):
+	return f'nombre: %s\n seccion: %s\n Precio: %s\n'
