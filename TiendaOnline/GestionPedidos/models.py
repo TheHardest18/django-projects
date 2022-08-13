@@ -21,4 +21,4 @@ class Pedidos(models.Model):
     fecha = models.DateField()
     entregado = models.BooleanField()
     def __str__(self):
-        return 'No. Pedido: %s\n Estado: %s' % (self.nombre, self.entregado)
+        return 'No. Pedido: %s\n Estado: %s' % (self.numero, self.entregado)

@@ -35,12 +35,35 @@ list
 OBTAIN QUERY
 list.query__str__()
 
-SEARCH
+INSERT
+from nombreapp.models import nameclass
+var =  nameclass(var='value', var=valueint)
+var.save()
+
+SEARCH TYPE WHERE
 from NombreApp.models import nameClass
-nameClass.models.filter(field='name')
+nameClass.objects.filter(field='name')
+nameClass.objects.filter(field='name', field2='name')
+nameClass.objects.filter(field='name', fieldInt__gte=25')
+nameClass.objects.filter(field='name', fieldInt__lte=25')
+nameClass.objects.filter(field='name', fieldInt__range=(10,150))
+__gte = >
+__lte = <
 ^--this return a QuerySet
 
 TRANSFORM SEARCH TO STR
-Create function python inside Class
+Create function python inside Class python
 def __str__(self):
-	return f'nombre: %s\n seccion: %s\n Precio: %s\n'
+	return f'nombre: %s\n seccion: %s\n Precio: %s\n' %(self.name, self.seccion, self.price)
+EXECUTE
+python manage.py makemigrations
+python manage.py migrate
+
+ORDER BY ASC
+nameClass.objects.filter(field='name', fieldInt__gte=25').order_by('price')
+
+ORDER BY DESC
+nameClass.objects.filter(field='name', fieldInt__gte=25').order_by('-price')
+
+CREATE SUPERUSER TO MANAGE IN URL /ADMIN
+python manage.py createsuperuser
