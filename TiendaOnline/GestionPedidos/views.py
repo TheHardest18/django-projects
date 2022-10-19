@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from GestionPedidos.models import Articulos
 from django.core.mail import send_mail
 from django.conf import settings
+from GestionPedidos.forms import FormularioContacto
 # Create your views here.
 def busqueda_productos(request):
     return render(request, "busqueda_productos.html")
@@ -23,11 +24,12 @@ def buscar(request):
     return HttpResponse(mensaje)
 def contacto(request):
     if request.method=="POST":
-        subject = request.POST["asunto"]
-        message = request.POST["mensaje"]
-        email_from = settings.EMAIL_HOST_USER
-        recipient_list = ["isias1626@gmail.com"]
-        send_mail(subject, message, email_from, recipient_list)
+        miForm =FormularioContacto(request.POST)
+        if miForm.is_valid():
+            infForm = miForm.cleaned_data
+            send_mail(infForm['asunto'], infForm['mensaje'], infForm.get('email',''),[infForm['email']],)
+            return render(request, "gracias.html")
+    else:
+        miForm = FormularioContacto()
 
-        return render(request, "gracias.html")
-    return render(request, "contacto.html")
+    return render(request, "Formulario_contacto.html", {'form':miForm})
