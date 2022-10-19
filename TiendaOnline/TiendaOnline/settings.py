@@ -129,8 +129,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #Este es el real c
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-# EMAIL_HOST_USER = "isias1626@gmail.com"
 EMAIL_HOST_USER = "tt7704338@gmail.com"
-EMAIL_HOST_PASSWORD = "lcfplpcnoiqeavhw"
-# from django.core.mail import send_mail
-# send_mail("Asunto", "Mensaje", "tt7704338@gmail.com", ['isias1626@gmail.com'], fail_silently=False)
+EMAIL_HOST_PASSWORD = ""
